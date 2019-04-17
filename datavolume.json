@@ -1,0 +1,29 @@
+{
+  "family": "XXXXXX-data-volume",
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "XXXXXX-data-volume",
+      "image": "XXX",
+      "essential": true,
+      "memoryReservation": 50,
+      "mountPoints": [
+        {
+          "containerPath": "/mnt",
+          "sourceVolume": "feeddata"
+        }
+      ],
+      "dockerLabels": {
+        "name": "datavolume"
+      }
+    }
+  ],
+  "volumes": [
+    {
+      "host": {
+        "sourcePath": "/u02"
+      },
+      "name": "feeddata"
+    }
+  ]
+}

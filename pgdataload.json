@@ -1,0 +1,19 @@
+{
+  "family": "XXXXXX-pgdataload",
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "XXXXXX-pgdataload",
+      "image": "IMGNAME_PGDATALOAD",
+      "essential": true,
+      "memory": 300,
+      "cpu": 100,
+      "extraHosts": [
+                {
+                    "hostname": "postgres",
+                    "ipAddress": "XXXXX"
+                }
+        ]
+      }
+  ]
+}

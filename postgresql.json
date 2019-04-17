@@ -1,0 +1,32 @@
+{
+  "family": "XXXXXX-postgresql",
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "XXXXXX-postgresql",
+      "image": "XXXX",
+      "essential": true,
+      "memoryReservation": 100,
+      "portMappings": [
+        {
+          "containerPort": 5432,
+          "hostPort": 5432
+        }
+      ],
+            "mountPoints": [
+        {
+          "containerPath": "/var/lib/postgresql/data",
+          "sourceVolume": "volume_pg"
+        }
+      ]
+    }
+  ],
+    "volumes": [
+    {
+      "host": {
+        "sourcePath": "/u01/postgresql_data"
+      },
+      "name": "volume_pg"
+    }
+  ]
+}

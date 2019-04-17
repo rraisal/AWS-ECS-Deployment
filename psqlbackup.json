@@ -1,0 +1,33 @@
+{
+  "family": "XXXXXX-psqlbackup",
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "XXXXXX-psqlbackup",
+      "image": "IMGNAME_PSQLBACKUP",
+      "essential": true,
+      "memory": 300,
+      "cpu": 100,
+      "extraHosts": [
+                {
+                    "hostname": "postgres",
+                    "ipAddress": "XXXXX"
+                }
+        ],
+        "mountPoints": [
+    {
+      "containerPath": "/mnt",
+      "sourceVolume": "volume_pgbackup"
+    }
+  ]
+  }
+  ],
+      "volumes": [
+    {
+      "host": {
+        "sourcePath": "/u01/psqlbackup"
+      },
+      "name": "volume_pgbackup"
+    }
+  ]
+}

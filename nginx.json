@@ -1,0 +1,32 @@
+{
+  "family": "XXXXXX-nginx",
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "XXXXXX-nginx",
+      "image": "IMGNAME_NGINX",
+      "essential": true,
+      "memoryReservation": 100,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 80
+        }
+      ],
+      "extraHosts": [
+                {
+                    "hostname": "core-service",
+                    "ipAddress": "XXXXX"
+                }
+        ],
+      "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+                    "awslogs-group": "XXXXXX-qa",
+                    "awslogs-region": "XXXX",
+                    "awslogs-stream-prefix": "Nginx-Log"
+          }
+        }
+      }
+  ]
+}

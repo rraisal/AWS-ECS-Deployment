@@ -1,0 +1,36 @@
+{
+  "family": "XXXXXX-zookeeper",
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "XXXXXX-zookeeper",
+      "image": "IMGNAME_ZOOKEEPER",
+      "essential": true,
+      "memoryReservation": 100,
+      "portMappings": [
+        {
+          "containerPort": 9090,
+          "hostPort": 9090
+        },
+        {
+          "containerPort": 2181,
+          "hostPort": 2181
+        }
+      ],
+      "mountPoints": [
+        {
+          "containerPath": "/opt/zookeeper/log",
+          "sourceVolume": "volume_zoo"
+        }
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "host": {
+        "sourcePath": "/u01/zookeeper-datalog"
+      },
+      "name": "volume_zoo"
+    }
+  ]
+}
